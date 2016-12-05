@@ -80,3 +80,15 @@ Router::scope('/', function (RouteBuilder $routes) {
  * how to customize the loading of plugin routes.
  */
 Plugin::routes();
+
+Router::prefix('admin', function ($routes) {
+    $routes->connect('/utilisateurs/', ['controller' => 'Users', 'action' => 'index']);
+    $routes->connect('/utilisateurs/:id-:username', ['controller' => 'Users', 'action' => 'view'], [
+        'pass' => ['id', 'username'],
+        'id' => '[0-9]+'
+    ]);
+    $routes->connect('/utilisateurs/editer/:id-:username', ['controller' => 'Users', 'action' => 'edit'], [
+        'pass' => ['id', 'username'],
+        'id' => '[0-9]+'
+    ]);
+});

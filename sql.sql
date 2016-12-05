@@ -31,13 +31,14 @@ CREATE TABLE `products`
   name VARCHAR(255) NOT NULL UNIQUE,
   description TEXT,
   price VARCHAR(8) NOT NULL,
-  categorie_id INT NOT NULL
+  category_id INT NOT NULL
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `orders`
 (
   id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL
+  user_id INT NOT NULL,
+  created DATETIME
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `orders_products`
@@ -48,7 +49,21 @@ CREATE TABLE `orders_products`
   quantity INT NOT NULL DEFAULT 1
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
+ALTER TABLE users
+ADD CONSTRAINT fk_role_id FOREIGN KEY(role_id) REFERENCES roles(id);
+
+ALTER TABLE products
+ADD CONSTRAINT fk_category_id FOREIGN KEY(category_id) REFERENCES categories(id);
+
+ALTER TABLE orders
+ADD CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES users(id);
+
+ALTER TABLE orders_products
+ADD CONSTRAINT fk_order_id FOREIGN KEY(order_id) REFERENCES orders(id);
+
+ALTER TABLE orders_products
+ADD CONSTRAINT fk_product_id FOREIGN KEY(product_id) REFERENCES products(id);
 
 
-INSERT INTO roles (id,name) VALUES ('7cH','Administrateur'),
+INSERT INTO roles (id,name) VALUES ('7cHhuIc2','Administrateur'),
 ('2Ci','Membre');
