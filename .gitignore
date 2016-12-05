@@ -2,4 +2,8 @@
 /config/app.php
 /tmp/*
 /logs/*
+<<<<<<< HEAD
 /.idea/*
+=======
+/.idea/*
+>>>>>>> 2c04576921c0acbcff59267befe6fcf6e6853dfc
