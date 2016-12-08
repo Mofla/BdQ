@@ -6,7 +6,7 @@ CREATE TABLE `users`
   password VARCHAR(255) NOT NULL,
   firstname VARCHAR(100),
   lastname VARCHAR(120),
-  role_id VARCHAR(3) NOT NULL DEFAULT '2Ci',
+  role_id VARCHAR(8) NOT NULL DEFAULT '2Ci',
   is_active TINYINT(1) DEFAULT 0,
   ok_newsletter TINYINT(1) DEFAULT 0,
   created DATETIME,
@@ -15,7 +15,7 @@ CREATE TABLE `users`
 
 CREATE TABLE `roles`
 (
-  id VARCHAR(3) UNIQUE PRIMARY KEY,
+  id VARCHAR(8) UNIQUE PRIMARY KEY,
   name VARCHAR(200)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 

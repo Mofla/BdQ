@@ -223,3 +223,45 @@ if (Configure::read('debug')) {
 }
 
 Plugin::load('Migrations');
+
+
+function noSpecials($text) {
+    $utf8 = [
+        '/[áàâãªä]/u' => 'a',
+        '/[ÁÀÂÃÄ]/u' => 'A',
+        '/[ÍÌÎÏ]/u' => 'I',
+        '/[íìîï]/u' => 'i',
+        '/[éèêë]/u' => 'e',
+        '/[ÉÈÊË]/u' => 'E',
+        '/[óòôõºö]/u' => 'o',
+        '/[ÓÒÔÕÖ]/u' => 'O',
+        '/[úùûü]/u' => 'u',
+        '/[ÚÙÛÜ]/u' => 'U',
+        '/ç/' => 'c',
+        '/Ç/' => 'C',
+        '/ñ/' => 'n',
+        '/Ñ/' => 'N',
+        '/–/' => '-', // conversion d'un tiret UTF-8 en un tiret simple
+        '/[‘’‚‹›]/u' => ' ', // guillemet simple
+        '/[“”«»„]/u' => ' ', // guillemet double
+        '/ /' => ' ', // espace insécable (équiv. à 0x160)
+    ];
+    return preg_replace(array_keys($utf8), array_values($utf8), $text);
+}
+function toUrl($string) {
+    $dict = ['I\'m' => 'I am'];
+    return strtolower(preg_replace(array( '#[\\s-]+#', '#[^A-Za-z0-9\. -]+#' ), array( '-', '' ), noSpecials(str_replace(array_keys($dict), array_values($dict), urldecode($string)))));
+}
+function fromUrl($string) {
+    return ucfirst(preg_replace('~-~',' ',$string));
+}
+function retrievePassword()
+{
+    $letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'];
+    $password = '';
+    for($i=0;$i<12;$i++)
+    {
+        $password .= $letters[mt_rand(0,count($letters) -1)];
+    }
+    return $password;
+}

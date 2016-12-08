@@ -26,6 +26,7 @@
 <body>
 
 <div class="container-fluid">
+    <?= $this->cell('Nav') ?>
     <?= $this->fetch('content') ?>
 </div>
 
