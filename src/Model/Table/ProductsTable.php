@@ -73,6 +73,11 @@ class ProductsTable extends Table
             ->requirePresence('price', 'create')
             ->notEmpty('price');
 
+        $validator
+            ->integer('is_daily')
+            ->requirePresence('is_daily', 'create')
+            ->notEmpty('is_daily');
+
         return $validator;
     }
 

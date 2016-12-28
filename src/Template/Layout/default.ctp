@@ -19,9 +19,10 @@
     <?= $this->Html->script('jquery-ui.js') ?>
     <?= $this->Html->script('bootstrap.js') ?>
 
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+
 </head>
 <body>
 
@@ -30,5 +31,6 @@
     <?= $this->fetch('content') ?>
 </div>
 
+<?= $this->Html->script('scripts') ?>
 </body>
 </html>

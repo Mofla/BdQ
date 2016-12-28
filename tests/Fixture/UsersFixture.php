@@ -23,7 +23,8 @@ class UsersFixture extends TestFixture
         'password' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'firstname' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'lastname' => ['type' => 'string', 'length' => 120, 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'role_id' => ['type' => 'string', 'length' => 3, 'null' => false, 'default' => '2Ci', 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'picture_url' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => 'default.jpg', 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'role_id' => ['type' => 'string', 'length' => 8, 'null' => false, 'default' => '2Ci', 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'is_active' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '0', 'comment' => '', 'precision' => null],
         'ok_newsletter' => ['type' => 'boolean', 'length' => null, 'null' => true, 'default' => '0', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
@@ -58,11 +59,12 @@ class UsersFixture extends TestFixture
             'password' => 'Lorem ipsum dolor sit amet',
             'firstname' => 'Lorem ipsum dolor sit amet',
             'lastname' => 'Lorem ipsum dolor sit amet',
-            'role_id' => 'L',
+            'picture_url' => 'Lorem ipsum dolor sit amet',
+            'role_id' => 'Lorem ',
             'is_active' => 1,
             'ok_newsletter' => 1,
-            'created' => '2016-12-05 10:41:50',
-            'modified' => '2016-12-05 10:41:50'
+            'created' => '2016-12-28 15:43:37',
+            'modified' => '2016-12-28 15:43:37'
         ],
     ];
 }

@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property string $description
  * @property string $price
  * @property int $category_id
+ * @property int $is_daily
  *
  * @property \App\Model\Entity\Category $category
  * @property \App\Model\Entity\Order[] $orders

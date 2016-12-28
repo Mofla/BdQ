@@ -85,6 +85,10 @@ class UsersTable extends Table
             ->allowEmpty('lastname');
 
         $validator
+            ->requirePresence('picture_url', 'create')
+            ->notEmpty('picture_url');
+
+        $validator
             ->boolean('is_active')
             ->allowEmpty('is_active');
 

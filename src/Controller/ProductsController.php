@@ -48,4 +48,9 @@ class ProductsController extends AppController
     {
 
     }
+
+    public function liste($id = null)
+    {
+
+    }
 }

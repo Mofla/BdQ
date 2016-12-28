@@ -27,15 +27,6 @@ $('.form-confirm').submit(function() {
     }
 });
 
-// information box
-$('.description').on('click',function(event) {
-    event.preventDefault();
-    $(this).next('.description-box').slideToggle();
-    $(this).next('.description-box').unbind().bind('click',function(){
-        $(this).slideToggle();
-    })
-});
-
 
 // box-articles animation (showing up one per one)
 function showDiv(div)
@@ -46,3 +37,8 @@ function showDiv(div)
         }, i * 500, $(this));
     });
 }
+
+// navbar li active
+$('.navbar').find('li').on('mouseenter mouseleave',function () {
+    $(this).toggleClass('active')
+})

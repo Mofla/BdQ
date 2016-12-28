@@ -6,6 +6,7 @@ CREATE TABLE `users`
   password VARCHAR(255) NOT NULL,
   firstname VARCHAR(100),
   lastname VARCHAR(120),
+  picture_url VARCHAR(255) DEFAULT 'default.jpg',
   role_id VARCHAR(8) NOT NULL DEFAULT '2Ci',
   is_active TINYINT(1) DEFAULT 0,
   ok_newsletter TINYINT(1) DEFAULT 0,
@@ -31,7 +32,8 @@ CREATE TABLE `products`
   name VARCHAR(255) NOT NULL UNIQUE,
   description TEXT,
   price VARCHAR(8) NOT NULL,
-  category_id INT NOT NULL
+  category_id INT NOT NULL,
+  is_daily TINYINT NOT NULL DEFAULT 0
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `orders`

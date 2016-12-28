@@ -28,6 +28,7 @@ class ProductsTableTest extends TestCase
         'app.categories',
         'app.orders',
         'app.users',
+        'app.roles',
         'app.orders_products'
     ];
 
