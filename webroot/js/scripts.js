@@ -42,3 +42,14 @@ function showDiv(div)
 $('.navbar').find('li').on('mouseenter mouseleave',function () {
     $(this).toggleClass('active')
 })
+
+function sameHeight(element)
+{
+    var height = 0;
+    $(element).each(function (index) {
+        if($(this).height()>height){
+            height = $(this).height();
+        }
+    });
+    $(element).height(height+50);
+}

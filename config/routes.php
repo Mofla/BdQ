@@ -86,6 +86,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 Plugin::routes();
 
 Router::prefix('admin', function ($routes) {
+    $routes->connect('/panneau', ['controller' => 'Users', 'action' => 'home']);
     $routes->connect('/utilisateurs/', ['controller' => 'Users', 'action' => 'index']);
     $routes->connect('/utilisateurs/:id-:username', ['controller' => 'Users', 'action' => 'view'], [
         'pass' => ['id', 'username'],
@@ -93,6 +94,17 @@ Router::prefix('admin', function ($routes) {
     ]);
     $routes->connect('/utilisateurs/editer/:id-:username', ['controller' => 'Users', 'action' => 'edit'], [
         'pass' => ['id', 'username'],
+        'id' => '[0-9]+'
+    ]);
+
+    $routes->connect('/produits/liste/',['controller' => 'Products','action' => 'index']);
+    $routes->connect('/produits/ajouter/',['controller' => 'Products','action' => 'add']);
+    $routes->connect('/produits/produits-du-jour/',['controller' => 'Products','action' => 'daily']);
+
+    $routes->connect('/categories/liste',['controller' => 'Categories','action' => 'index']);
+    $routes->connect('/categories/ajouter',['controller' => 'Categories','action' => 'add']);
+    $routes->connect('/categories/:id-:name',['controller' => 'Categories','action' => 'index'], [
+        'pass' => ['id', 'name'],
         'id' => '[0-9]+'
     ]);
 });

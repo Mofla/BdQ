@@ -1,6 +1,11 @@
 body{
-    background-color: rgba(240,240,240,0.2);
+    background-color: rgba(240, 94, 36, 0.2);
     width:100%;
+}
+
+html,body
+{
+    height:100%;
 }
 
 
@@ -76,12 +81,15 @@ body{
         background-color: #ef6b24;
     }
 }
-.navbar{
-    border:none;
+.navbar-default .navbar-nav > li > a
+{
+    padding: 20px 40px !important;
+    font-weight: bold;
 }
-.nav>li{
-    margin-bottom: 0;
-    padding-bottom: 0;
+
+.nav-md li
+{
+    margin-bottom: -5px !important;
 }
 
 /*
@@ -152,4 +160,19 @@ body{
 
 .navbar .navbar-collapse {
     text-align: center;
+}
+
+nav
+{
+    margin-bottom: 2px !important;
+}
+
+/*
+** Cols
+*/
+
+.well
+{
+    margin:0 !important;
+    border:none;
 }
